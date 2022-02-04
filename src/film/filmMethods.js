@@ -3,7 +3,10 @@ const Film = require('./filmModel');
 
 exports.addMovie = async (newFilm) => {
   try {
-    let movie = new Film(newFilm);
+    let movie = new Film({
+      name: newFilm.title,
+      actor: newFilm.actor
+    });
     await movie.save();
     console.log("Movie was created")
   } catch (error) {
@@ -30,5 +33,17 @@ exports.deleteMovie = async (movie) => {
 }
 
 exports.updateMovie = async (movie) => {
-
+  try {
+    await Film.updateOne(
+      {_id: movie._id},
+      { $set: 
+        {name: movie.title,
+        actor: movie.actor}
+      }
+    );
+    console.log(movie._id)
+    console.log("Movie was updated")
+  } catch (error) {
+    console.log(error)
+  }
 }
