@@ -16,7 +16,7 @@ const app = async () => {
     await list()
     console.log("list")
   } else if (argv.delete) {
-    await deleteMovie()
+    await deleteMovie(argv)
     // await deleteMovie({ 
     //   name: argv.title,
     //   actor: argv.actor })

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const Film = require('./filmModel');
 
 exports.addMovie = async (newFilm) => {
@@ -20,13 +20,9 @@ exports.list = async () => {
   }
 }
 
-exports.deleteMovie = async () => {
+exports.deleteMovie = async (movie) => {
   try {
-    const allMovies = await Film.find({})
-    console.log(allMovies)
-    await allMovies.findById({id: movie._id}).deleteOne()
-    // let movie = new Film(newFilm);
-    // await movie.deleteOne();
+    await Film.deleteOne({id: movie._id});
     console.log("Movie was deleted")
   } catch (error) {
     console.log(error)
