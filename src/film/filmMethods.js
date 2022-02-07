@@ -5,7 +5,10 @@ exports.addMovie = async (newFilm) => {
   try {
     let movie = new Film({
       name: newFilm.title,
-      actor: newFilm.actor
+      actor: newFilm.actor,
+      duration: newFilm.duration,
+      year: newFilm.year,
+      genre: newFilm.year
     });
     await movie.save();
     console.log("Movie was created")
@@ -38,7 +41,10 @@ exports.updateMovie = async (movie) => {
       {_id: movie._id},
       { $set: 
         {name: movie.title,
-        actor: movie.actor}
+        actor: movie.actor,
+        duration: movie.duration,
+        year: movie.year,
+        genre: movie.year}
       }
     );
     console.log(movie._id)

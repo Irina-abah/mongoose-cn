@@ -6,10 +6,22 @@ const filmSchema = new mongoose.Schema({
     required: true,
     minlength: 1,
     maxlength: 30,
+    required: true
   },
   actor: {
     type: String,
-    default: 'Actor is unknown',
+    default: 'Actor is unknown'
+  },
+  duration: {
+    type: Number
+  },
+  year: {
+    type: String,
+    required: true
+  },
+  genre: {
+    type: String,
+    required: true
   }
 });
 
